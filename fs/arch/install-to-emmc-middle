@@ -6,14 +6,14 @@ set -e
 export SYSTEMD=1
 export EUDEV=0
 
-# think we need to start the network to do this. Maybe not...
-systemctl start NetworkManager.service
-systemctl enable NetworkManager.service
-sleep 4
+# We do not need network stuff here, added to begin script
+#systemctl start NetworkManager.service
+#systemctl enable NetworkManager.service
+#sleep 4
 
-nmcli device wifi rescan
-sleep 4 # wait for it to show up
-nmtui connect
+#nmcli device wifi rescan
+#sleep 4 # wait for it to show up
+#nmtui connect
 
 wget -N http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz
 bsdtar -xpf ArchLinuxARM-aarch64-latest.tar.gz -C /mnt
